@@ -4,7 +4,11 @@
 > **Prompt usado para esta etapa:**
 > 
 > Preciso organizar a base de conhecimento do meu agente financeiro educativo.
-> Tenho estes arquivos de dados: [liste os arquivos]
+> Tenho estes arquivos de dados:
+> - historico_atendimento.csv
+> - perfil_investidor.json
+> - produtos_financeiros.json
+> - transacoes.csv
 > Me ajude a:
 > (1) entender o que cada arquivo contém,
 > (2) decidir como usar cada um,
