@@ -67,10 +67,10 @@ Use com os participantes do teste:
 Após os testes, registre suas conclusões:
 
 **O que funcionou bem:**
-- As perguntas relacionadas a gastos, sobre tipos de investimento e informações sobre um investimento específico.
+- As respostas relacionadas a gastos, sobre tipos de investimento e informações sobre um investimento específico.
 
 **O que pode melhorar:**
-- As respostas sobre recomendações de investimentos e perguntas fora do escopo.
+- As respostas relacionadas a recomendações de investimentos e perguntas fora do escopo.
 
 ---
 
