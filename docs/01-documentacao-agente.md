@@ -3,7 +3,7 @@
 > [!TIP]
 > **Prompt Sugerido para esta etapa:**
 > 
-> Me ajude a documentar um agente de IA financeiro. O caso de uso é [descreva seu caso de uso].
+> Me ajude a documentar um agente de IA financeiro. O caso de uso é um usuário fazendo perguntas para um agente de IA financeiro.
 > Preciso definir: problema que resolve, público-alvo, personalidade do agente, tom de voz
 > e estratégias anti-alucinação. Use o template abaixo como base:
 > 
