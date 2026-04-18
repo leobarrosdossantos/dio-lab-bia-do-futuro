@@ -1,149 +1,61 @@
-# 🤖 Agente Financeiro Inteligente com IA Generativa
+💰 Edu — Educador Financeiro com IA
 
-## Contexto
+Agente conversacional de educação financeira desenvolvido com Amazon Bedrock + Claude 3 Sonnet, como solução para o desafio BIA do Futuro da DIO.
 
-Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots reativos para **agentes inteligentes e proativos**. Neste desafio, você vai idealizar e prototipar um agente financeiro que utiliza IA Generativa para:
 
-- **Antecipar necessidades** ao invés de apenas responder perguntas
-- **Personalizar** sugestões com base no contexto de cada cliente
-- **Cocriar soluções** financeiras de forma consultiva
-- **Garantir segurança** e confiabilidade nas respostas (anti-alucinação)
+🤖 Sobre o Projeto
+Edu é um assistente virtual especializado em educação financeira, capaz de ajudar usuários a entender conceitos como orçamento, investimentos, dívidas e planejamento financeiro de forma acessível e didática.
+O projeto foi desenvolvido como resposta ao desafio proposto pela DIO, utilizando agentes de IA generativa na AWS para criar uma solução funcional e documentada.
 
-> [!TIP]
-> Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
+🛠️ Tecnologias Utilizadas
+TecnologiaFinalidadeAmazon BedrockPlataforma de IA generativaClaude 3 Sonnet (Anthropic)Modelo de linguagem do agenteAWS LambdaExecução das action groupsAmazon S3Armazenamento da base de conhecimentoPythonLógica das funções Lambda
 
----
+🧠 Arquitetura do Agente
+Usuário
+   │
+   ▼
+Amazon Bedrock Agent (Edu)
+   ├── Instruções & Persona
+   ├── Base de Conhecimento (S3)
+   └── Action Groups (Lambda)
+         ├── calcular_juros_compostos
+         ├── simular_investimento
+         └── analisar_orcamento
 
-## O Que Você Deve Entregar
+📋 Funcionalidades
 
-### 1. Documentação do Agente
+Explicação de conceitos financeiros de forma simples
+Cálculo de juros compostos e simulações de investimento
+Análise básica de orçamento pessoal
+Recomendações de planejamento financeiro
+Respostas personalizadas ao perfil do usuário
 
-Defina **o que** seu agente faz e **como** ele funciona:
 
-- **Caso de Uso:** Qual problema financeiro ele resolve? (ex: consultoria de investimentos, planejamento de metas, alertas de gastos)
-- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
-- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
-- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
+📁 Estrutura do Repositório
+dio-lab-bia-do-futuro/
+├── lambda/
+│   └── edu_actions.py         # Funções das Action Groups
+├── knowledge-base/
+│   └── educacao_financeira.pdf  # Base de conhecimento do Edu
+├── agent-config/
+│   └── instrucoes_edu.txt     # Prompt de sistema e persona
+└── README.md
 
-📄 **Template:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
+🚀 Como Reproduzir
 
----
+Pré-requisitos: conta AWS com acesso ao Amazon Bedrock e permissão para usar o modelo Claude 3 Sonnet.
+Base de conhecimento: faça upload do arquivo em knowledge-base/ para um bucket S3 e crie um Knowledge Base no Bedrock apontando para ele.
+Action Groups: faça deploy da função em lambda/edu_actions.py no AWS Lambda e vincule ao agente no Bedrock.
+Criação do Agente: no console do Amazon Bedrock, crie um novo agente usando as instruções em agent-config/instrucoes_edu.txt e associe a base de conhecimento e as action groups.
+Teste: use o playground do Bedrock para interagir com o Edu e validar as respostas.
 
-### 2. Base de Conhecimento
 
-Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alimentar seu agente:
+📎 Links
 
-| Arquivo | Formato | Descrição |
-|---------|---------|-----------|
-| `transacoes.csv` | CSV | Histórico de transações do cliente |
-| `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
-| `perfil_investidor.json` | JSON | Perfil e preferências do cliente |
-| `produtos_financeiros.json` | JSON | Produtos e serviços disponíveis |
+🔗 Repositório no GitHub
+🎓 Desafio BIA do Futuro — DIO
 
-Você pode adaptar ou expandir esses dados conforme seu caso de uso.
 
-📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
-
----
-
-### 3. Prompts do Agente
-
-Documente os prompts que definem o comportamento do seu agente:
-
-- **System Prompt:** Instruções gerais de comportamento e restrições
-- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada
-- **Tratamento de Edge Cases:** Como o agente lida com situações limite
-
-📄 **Template:** [`docs/03-prompts.md`](./docs/03-prompts.md)
-
----
-
-### 4. Aplicação Funcional
-
-Desenvolva um **protótipo funcional** do seu agente:
-
-- Chatbot interativo (sugestão: Streamlit, Gradio ou similar)
-- Integração com LLM (via API ou modelo local)
-- Conexão com a base de conhecimento
-
-📁 **Pasta:** [`src/`](./src/)
-
----
-
-### 5. Avaliação e Métricas
-
-Descreva como você avalia a qualidade do seu agente:
-
-**Métricas Sugeridas:**
-- Precisão/assertividade das respostas
-- Taxa de respostas seguras (sem alucinações)
-- Coerência com o perfil do cliente
-
-📄 **Template:** [`docs/04-metricas.md`](./docs/04-metricas.md)
-
----
-
-### 6. Pitch
-
-Grave um **pitch de 3 minutos** (estilo elevador) apresentando:
-
-- Qual problema seu agente resolve?
-- Como ele funciona na prática?
-- Por que essa solução é inovadora?
-
-📄 **Template:** [`docs/05-pitch.md`](./docs/05-pitch.md)
-
----
-
-## Ferramentas Sugeridas
-
-Todas as ferramentas abaixo possuem versões gratuitas:
-
-| Categoria | Ferramentas |
-|-----------|-------------|
-| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
-| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
-| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
-| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
-
----
-
-## Estrutura do Repositório
-
-```
-📁 lab-agente-financeiro/
-│
-├── 📄 README.md
-│
-├── 📁 data/                          # Dados mockados para o agente
-│   ├── historico_atendimento.csv     # Histórico de atendimentos (CSV)
-│   ├── perfil_investidor.json        # Perfil do cliente (JSON)
-│   ├── produtos_financeiros.json     # Produtos disponíveis (JSON)
-│   └── transacoes.csv                # Histórico de transações (CSV)
-│
-├── 📁 docs/                          # Documentação do projeto
-│   ├── 01-documentacao-agente.md     # Caso de uso e arquitetura
-│   ├── 02-base-conhecimento.md       # Estratégia de dados
-│   ├── 03-prompts.md                 # Engenharia de prompts
-│   ├── 04-metricas.md                # Avaliação e métricas
-│   └── 05-pitch.md                   # Roteiro do pitch
-│
-├── 📁 src/                           # Código da aplicação
-│   └── app.py                        # (exemplo de estrutura)
-│
-├── 📁 assets/                        # Imagens e diagramas
-│   └── ...
-│
-└── 📁 examples/                      # Referências e exemplos
-    └── README.md
-```
-
----
-
-## Dicas Finais
-
-1. **Comece pelo prompt:** Um bom system prompt é a base de um agente eficaz
-2. **Use os dados mockados:** Eles garantem consistência e evitam problemas com dados sensíveis
-3. **Foque na segurança:** No setor financeiro, evitar alucinações é crítico
-4. **Teste cenários reais:** Simule perguntas que um cliente faria de verdade
-5. **Seja direto no pitch:** 3 minutos passam rápido, vá ao ponto
+👤 Autor
+Leonardo Barros dos Santos
+Desenvolvido como parte do bootcamp da DIO — desafio de IA generativa com Amazon Bedrock.
